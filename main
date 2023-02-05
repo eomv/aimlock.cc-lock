@@ -1,0 +1,49 @@
+getgenv().settings = {
+    enabled = true,
+    aim = {
+        key = "q", -- replace Q with any other key (capitals)
+        field_of_view = 90,
+        prediction = {
+            vertical_prediction = not showing sets,
+            horizontal_prediction = not showing sets
+        },
+        smoothness = {
+            vertical_smoothness = not showing sets,
+            horizontal_smoothness = not showing sets
+        },
+        behavior = {
+            airshot_delay = true,
+            airshot_delay = 0.35,
+            side_lock = false, -- locks the aiming to be only on one side of the character all the time
+            ignore_vertical_prediction = true,
+            additional_hitpart_position = Vector3.new(0,0,0) -- additional vertical position to add or remove from the hitpart 
+        },
+        hitpart = {
+            ground_hitpart = "Head", -- refer to line 29-31 for all aim parts
+            air_hitpart = {"LowerTorso","HumanoidRootPart"} -- refer to line 29-31 for all aim parts
+            -- air hitpart will cycle through all different/included parts and set them randomly
+        },
+        shake = {
+            amount = Vector3.new(0,1,1) -- shake in all axis below -0.5/0.5 is legit
+        }
+    },
+    conditions = {
+        visible_check = true,
+        dead_check = true,
+        typing_check = true,
+        crew_check = false,
+        velocity_exceeds_maximum = true, -- players velocity is bigger than max (removes air, ground antilock)
+        maximum_velocity_negative = -30,
+        maximum_velocity_positive = 30,
+        velocity_difference_too_large = true, -- players velocity is too big compared to the last velocity recorded (removes all antilocks that use velocity)
+        max_velocity_difference = 10
+    },
+    macro = {
+        enabled = true,
+        key = Enum.KeyCode.K
+    },
+    cursor = {
+        image = true,
+        id = "rbxassetid://12279053222" -- dx9 by default
+    }
+}
